@@ -40,10 +40,10 @@ http {
         return 301 https://$host$request_uri;
       }
 
-      alias /dist/;
+      alias /faerbicash/dist/;
       try_files $uri /index.html;
     }
 
-    root /dist;
+    root /faerbicash/dist;
   }
 }
