@@ -31,10 +31,15 @@ const Entry = styled.div`
   justify-content: space-between;
 `;
 
-const Price = styled.div`
+interface PriceProps {
+    bold?: boolean
+}
+
+const Price = styled.div<PriceProps>`
   min-width: 40px;
   float: left;
   text-align: right;
+  font-weight: ${props => props.bold ? 'bold' : 'normal'};
 `
 
 const ButtonGroup = styled.div`
@@ -56,12 +61,12 @@ const BigButton = styled.button`
 `
 
 const ResetButton = styled(BigButton)`
-  background-color: rgb(253, 0, 0);
+  background-color: rgb(1, 163, 228);
   color: white;
 `;
 
 const ReceitButton = styled(BigButton)`
-  background-color: rgb(36, 75, 2);
+  background-color: rgb(128, 128, 199);
   color: white;
 `;
 
@@ -167,7 +172,7 @@ const TotalComponent = ({ selectedProducts, addProduct, removeProduct, resetProd
                         </div>
                         <div>
                             <Price>{product.price}.-</Price>
-                            <Price>{product.price * amount}.-</Price>
+                            <Price bold={true}>{product.price * amount}.-</Price>
                         </div>
                     </Entry>
                 ))}
@@ -176,7 +181,7 @@ const TotalComponent = ({ selectedProducts, addProduct, removeProduct, resetProd
                     {getAmountOfDeposit(deposit) > 0 && <Entry>
                             <div style={{paddingLeft: "2.5rem"}}>{getAmountOfDeposit(deposit)}x Depot {deposit}</div>
                             <div><Price>{getDepositPrice(deposit)}.-</Price>
-                                <Price>{getTotalPriceForDeposit(deposit)}.-</Price></div>
+                                <Price bold={true}>{getTotalPriceForDeposit(deposit)}.-</Price></div>
                         </Entry>}
                     </>
                     ))
@@ -191,8 +196,8 @@ const TotalComponent = ({ selectedProducts, addProduct, removeProduct, resetProd
                             <SmallRoundButton onClick={() => addDepositBack(deposit)}>+</SmallRoundButton>
                         </div>
                         <div>
-                            <Price>-{getDepositPrice(deposit)}.-</Price>
-                            <Price>-{getTotalDepositBack(deposit)}.-</Price>
+                            <Price>{getDepositPrice(deposit)}.-</Price>
+                            <Price bold={true}>{getTotalDepositBack(deposit)}.-</Price>
                         </div>
                         </Entry>
                 ))}

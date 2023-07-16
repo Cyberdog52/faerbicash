@@ -26,6 +26,7 @@ const ButtonGrid = styled.div`
 `
 
 const Button = styled.button<ButtonProps>`
+  position: relative;
   background-color: ${props => props.backgroundColor};
   border: none;
   border-radius: 1rem;
@@ -39,14 +40,16 @@ const Button = styled.button<ButtonProps>`
 `
 
 const Total = styled.span<ButtonProps>`
-  position: relative;
-  top: -1.5rem;
+  position: absolute;
+  top: 0;
   right: 0;
+  padding: 4px;
+  font-size: 1rem;
+  width: 1rem;
+  height: 1rem;
   background-color: ${props => props.backgroundColor};
   border: none;
   border-radius: 50%;
-  padding: 0.2rem;
-  font-size: 1rem;
   color: ${props => props.textColor};
 `
 
