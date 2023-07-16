@@ -8,7 +8,6 @@ const AppComponent = styled.div`
   background-color: #000000;
   min-height: 100vh;
   color: white;
-  font-size: calc(10px + 1vw);
   display: flex;
   flex-direction: row;
   column-gap: 1vw;
@@ -23,7 +22,6 @@ const ButtonContainer = styled.div`
   padding: 1rem;
   
   border: none;
-  border-radius: 0.5rem;
   font-weight: bold;
 `
 
@@ -33,7 +31,6 @@ const TotalContainer = styled.div`
   min-width: 300px;
   padding: 8px;
   border: none;
-  border-radius: 0.5rem;
 `
 
 function App() {

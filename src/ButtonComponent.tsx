@@ -29,14 +29,18 @@ const Button = styled.button<ButtonProps>`
   position: relative;
   background-color: ${props => props.backgroundColor};
   border: none;
+  @media (min-width: 768px) {
+    font-size: 1.25rem;
+  }
+  font-size: 1rem;
   border-radius: 1rem;
   margin-right: 4px;
   margin-bottom: 4px;
   cursor: pointer;
-  margin-outside: 1px;
   font-weight: bold;
   color: ${props => props.textColor};
   text-align: center;
+  min-height: 3rem;
 `
 
 const Total = styled.span<ButtonProps>`
@@ -47,6 +51,12 @@ const Total = styled.span<ButtonProps>`
   font-size: 1rem;
   width: 1rem;
   height: 1rem;
+
+  @media (min-width: 768px) {
+    font-size: 1.25rem;
+    width: 1.25rem;
+    height: 1.25rem;
+  }
   background-color: ${props => props.backgroundColor};
   border: none;
   border-radius: 50%;
