@@ -5,34 +5,34 @@ export enum ProductType {
 
 export enum Deposit {
     NONE = 'NONE',
-    CUP = 'CUP',
-    MUG = 'MUG',
-    GLASS = 'GLASS',
+    CUP = 'Becher',
+    MUG = 'Mule',
+    GLASS = 'Glasflasche',
 }
 
 export class Product {
     name: string;
     type: ProductType;
-    cost: number;
+    price: number;
     depot: Deposit;
     backgroundColor: string;
     textColor: string;
 
-    constructor(name: string, type: ProductType, cost: number, depot: Deposit, backgroundColor: string = '#ffffff', textColor: string = '#282c34') {
+    constructor(name: string, type: ProductType, price: number, depot: Deposit, backgroundColor: string = '#ffffff', textColor: string = '#282c34') {
         this.name = name;
         this.type = type;
-        this.cost = cost;
+        this.price = price;
         this.depot = depot;
         this.backgroundColor = backgroundColor;
         this.textColor = textColor;
     }
 
     getDepositCost(): number {
-        return getDepositCost(this.depot);
+        return getDepositPrice(this.depot);
     }
 }
 
-export function getDepositCost(deposit: Deposit): number {
+export function getDepositPrice(deposit: Deposit): number {
     switch (deposit) {
         case Deposit.CUP:
             return 2;
@@ -51,13 +51,13 @@ export const allProducts : Product[]  = [
     new Product("Moscht", ProductType.DRINK, 7, Deposit.NONE),
     new Product("Bier Alkoholfrei", ProductType.DRINK, 6, Deposit.NONE),
     new Product("Softdrink", ProductType.DRINK, 5, Deposit.CUP),
-    new Product("Engergy Drink", ProductType.DRINK, 6, Deposit.NONE),
+    new Product("Energy Drink", ProductType.DRINK, 6, Deposit.NONE),
     new Product("Shot", ProductType.DRINK, 5, Deposit.NONE),
     new Product("Shot Flasche", ProductType.DRINK, 50, Deposit.GLASS),
     new Product("Mule", ProductType.DRINK, 15, Deposit.MUG),
     new Product("Virgin Mule", ProductType.DRINK, 12, Deposit.MUG),
     new Product("Longdrink", ProductType.DRINK, 14, Deposit.CUP),
-    new Product("5400 Gin", ProductType.DRINK, 15, Deposit.CUP),
+    new Product("Virgin Sunrise", ProductType.DRINK, 12, Deposit.CUP),
     new Product("Aperol / Hugo", ProductType.DRINK, 12, Deposit.CUP),
     new Product("Gsprützte Wiise", ProductType.DRINK, 8, Deposit.CUP),
     new Product("Cüpli", ProductType.DRINK, 7, Deposit.CUP),
