@@ -5,7 +5,7 @@ import ButtonComponent from './ButtonComponent';
 import TotalComponent from './TotalComponent';
 
 const AppComponent = styled.div`
-  background-color: #282c34;
+  background-color: #000000;
   min-height: 100vh;
   color: white;
   font-size: calc(10px + 1vw);
@@ -22,7 +22,6 @@ const ButtonContainer = styled.div`
   min-height: 500px;
   padding: 1rem;
   
-  background-color: #61dafb;
   border: none;
   border-radius: 0.5rem;
   font-weight: bold;
@@ -32,9 +31,7 @@ const TotalContainer = styled.div`
   flex: 1 1 auto;
   float: right;
   min-width: 300px;
-  padding: 1rem;
-
-  background-color: #f38ca5;
+  padding: 8px;
   border: none;
   border-radius: 0.5rem;
 `

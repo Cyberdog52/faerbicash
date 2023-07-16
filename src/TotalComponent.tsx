@@ -15,6 +15,7 @@ const Container = styled.div`
   flex-direction: column;
   row-gap: 0.5rem;
   height: 100%;
+  font-size: 1rem;
 `
 
 const ProductList = styled.div`
@@ -31,8 +32,9 @@ const Entry = styled.div`
 `;
 
 const Price = styled.div`
-  min-width: 70px;
+  min-width: 40px;
   float: left;
+  text-align: right;
 `
 
 const ButtonGroup = styled.div`
@@ -70,28 +72,32 @@ const DepositBackContainer = styled.div`
   width: 100%;
   margin-top: auto;
   align-self: flex-end;
+  color: #fd5dac;
+`
+
+const Text = styled.span`
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
 `
 
 
 const SmallRoundButton = styled.button`
   border-radius: 100%;
-  border: 1px solid rgba(0, 0, 0, 0.44);
   font-size: 1.5rem;
+  border: none;
   font-weight: bold;
   background-color: transparent;
-  margin-left: 0.5rem;
   height: 2rem;
   width: 2rem;
   text-align: center;
-  justify-content: center;
-  align-content: center;
   cursor: pointer;
+  box-shadow: rgba(229, 229, 255, 0.54) 1px 3px 3px 1px;
+  color: white;
 `
 
 const TotalContainer = styled.div`
   width: 100%;
   height: 2.5rem;
-  background-color: #f38ca5;
   border: none;
   border-radius: 0.5rem;
   font-weight: bold;
@@ -156,7 +162,7 @@ const TotalComponent = ({ selectedProducts, addProduct, removeProduct, resetProd
                     <Entry key={product.name}>
                         <div>
                             <SmallRoundButton onClick={() => removeProduct(product)}>-</SmallRoundButton>
-                            {amount}x {product.name}
+                            <Text>{amount}x {product.name}</Text>
                             <SmallRoundButton onClick={() => addProduct(product)}>+</SmallRoundButton>
                         </div>
                         <div>
@@ -168,7 +174,7 @@ const TotalComponent = ({ selectedProducts, addProduct, removeProduct, resetProd
                 {[Deposit.CUP, Deposit.MUG, Deposit.GLASS].map(deposit => (
                     <>
                     {getAmountOfDeposit(deposit) > 0 && <Entry>
-                            <div>{getAmountOfDeposit(deposit)}x Depot {deposit}</div>
+                            <div style={{paddingLeft: "2.5rem"}}>{getAmountOfDeposit(deposit)}x Depot {deposit}</div>
                             <div><Price>{getDepositPrice(deposit)}.-</Price>
                                 <Price>{getTotalPriceForDeposit(deposit)}.-</Price></div>
                         </Entry>}
@@ -181,7 +187,7 @@ const TotalComponent = ({ selectedProducts, addProduct, removeProduct, resetProd
                     <Entry key={deposit}>
                         <div>
                             <SmallRoundButton onClick={() => removeDepositBack(deposit)}>-</SmallRoundButton>
-                            {getDepositBackAmount(deposit)}x {deposit} zurück
+                            <Text>{getDepositBackAmount(deposit)}x {deposit} zurück </Text>
                             <SmallRoundButton onClick={() => addDepositBack(deposit)}>+</SmallRoundButton>
                         </div>
                         <div>
