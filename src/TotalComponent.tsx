@@ -52,6 +52,7 @@ const ButtonGroup = styled.div`
   align-self: flex-end;
   
   width: 100%;
+  margin-bottom: 8px;
 `
 
 const BigButton = styled.button`
@@ -85,7 +86,6 @@ const Text = styled.span`
 
 
 const SmallRoundButton = styled.button`
-  border-radius: 100%;
   font-size: 1.25rem;
   border: none;
   font-weight: bold;
@@ -94,7 +94,7 @@ const SmallRoundButton = styled.button`
   width: 1.5rem;
   text-align: center;
   cursor: pointer;
-  box-shadow: rgba(229, 229, 255, 0.54) 1px 3px 3px 1px;
+  box-shadow: rgba(229, 229, 255, 0.3) 1px 3px 3px 1px;
   color: white;
 `
 
@@ -123,7 +123,7 @@ const TotalComponent = ({ selectedProducts, addProduct, removeProduct, resetProd
 
     function removeDepositBack(deposit: Deposit) {
         const newDepositBack = new Map(depositBack);
-        newDepositBack.set(deposit, (newDepositBack.get(deposit) ?? 0) - 1);
+        newDepositBack.set(deposit, Math.max((newDepositBack.get(deposit) ?? 0) - 1, 0));
         setDepositBack(newDepositBack);
     }
 
@@ -164,8 +164,9 @@ const TotalComponent = ({ selectedProducts, addProduct, removeProduct, resetProd
                     <Entry key={product.name}>
                         <div>
                             <SmallRoundButton onClick={() => removeProduct(product)}>-</SmallRoundButton>
-                            <Text>{amount}x {product.name}</Text>
+                            <Text>{amount}x</Text>
                             <SmallRoundButton onClick={() => addProduct(product)}>+</SmallRoundButton>
+                            <Text>{product.name}</Text>
                         </div>
                         <div>
                             <Price>{product.price}.-</Price>
@@ -189,8 +190,9 @@ const TotalComponent = ({ selectedProducts, addProduct, removeProduct, resetProd
                     <Entry key={deposit}>
                         <div>
                             <SmallRoundButton onClick={() => removeDepositBack(deposit)}>-</SmallRoundButton>
-                            <Text>{getDepositBackAmount(deposit)}x {deposit} zurück </Text>
+                            <Text>{getDepositBackAmount(deposit)}x </Text>
                             <SmallRoundButton onClick={() => addDepositBack(deposit)}>+</SmallRoundButton>
+                            <Text>{deposit} zurück</Text>
                         </div>
                         <div>
                             <Price>{getDepositPrice(deposit)}.-</Price>

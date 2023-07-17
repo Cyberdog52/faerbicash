@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { Product } from './model';
 import ButtonComponent from './ButtonComponent';
 import TotalComponent from './TotalComponent';
+import BackgroundImage from "./assets/background.png";
 
 const AppComponent = styled.div`
   background-color: #000000;
@@ -19,17 +20,17 @@ const AppComponent = styled.div`
   }
 `
 
-const ButtonContainer = styled.div`
+export interface BackgroundProps {
+    backgroundImage: string;
+}
+
+const ButtonContainer = styled.div<BackgroundProps>`
   flex: 2 1 auto;
-  min-width: 300px;
-  padding-top: 4px;
-  padding-left: 4px;
-  padding-bottom: 4px;
-  
-  @media (min-width: 768px) {
-    padding: 1rem;
-  }
-  
+  background-image: url(${props => props.backgroundImage});
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+
   @media (orientation: landscape) {
     height: 100%;
     max-width: 50vw;
@@ -37,7 +38,7 @@ const ButtonContainer = styled.div`
   @media (orientation: portrait) {
     min-height: 500px;
   }
-  
+
   border: none;
   font-weight: bold;
 `
@@ -76,8 +77,12 @@ function App() {
     const removeProduct = (product: Product) => {
         const newSelectedProducts = new Map(selectedProducts);
         const currentAmount = newSelectedProducts.get(product) || 0;
-        if (currentAmount > 0) {
-            newSelectedProducts.set(product, currentAmount - 1);
+        const newAmount = currentAmount - 1;
+        if (newAmount > 0) {
+            newSelectedProducts.set(product, newAmount);
+            setSelectedProducts(newSelectedProducts);
+        } else {
+            newSelectedProducts.delete(product);
             setSelectedProducts(newSelectedProducts);
         }
     }
@@ -88,7 +93,7 @@ function App() {
 
     return (
     <AppComponent>
-        <ButtonContainer>
+        <ButtonContainer backgroundImage={BackgroundImage}>
             <ButtonComponent
                 addProduct={addProduct}
                 selectedProducts={selectedProducts}

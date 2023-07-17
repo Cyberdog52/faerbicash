@@ -20,14 +20,15 @@ const ButtonGrid = styled.div`
   @media (orientation: landscape) {
     grid-template-columns: repeat(4, 1fr);
   }
-  grid-gap: 0.1vw;
-  height: 100%
+  height: calc(100% - 4px);
+  margin-right: 4px;
+  margin-bottom: 4px;
 `
 
 const Button = styled.button<ButtonProps>`
   position: relative;
   background-color: ${props => props.backgroundColor};
-  border: none;
+  border: 4px black solid;
   @media (min-width: 768px) {
     font-size: 1.25rem;
   }
@@ -35,8 +36,8 @@ const Button = styled.button<ButtonProps>`
     font-size: 1rem;
   }
   font-size: 0.8rem;
-  margin-right: 4px;
-  margin-bottom: 4px;
+  margin-left: 4px;
+  margin-top: 4px;
   cursor: pointer;
   font-weight: bold;
   color: ${props => props.textColor};
@@ -77,13 +78,13 @@ const ButtonComponent = ({ addProduct, selectedProducts }: ButtonComponentProps)
             {allProducts.map(product => (
                 <>
                     <Button
-                        backgroundColor={product.backgroundColor}
-                        textColor={product.textColor}
+                        backgroundColor={product.getPrimaryColor()}
+                        textColor={product.getSecondaryColor()}
                         key={product.name}
-                        onClick={() => addProduct(product)}>{product.name}
+                        onClick={() => addProduct(product)}>{product.name.toUpperCase()}
                         {isSelected(product) && <Total
-                            backgroundColor={product.textColor}
-                            textColor={product.backgroundColor}>
+                            backgroundColor={product.getSecondaryColor()}
+                            textColor={product.getPrimaryColor()}>
                             {getTotalAmount(product)}
                         </Total>}
                     </Button>
