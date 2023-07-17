@@ -33,10 +33,10 @@ const ButtonContainer = styled.div<BackgroundProps>`
 
   @media (orientation: landscape) {
     height: 100%;
-    max-width: 50vw;
+    max-width: 60vw;
   }
   @media (orientation: portrait) {
-    min-height: 500px;
+    height: 600px;
   }
 
   border: none;
@@ -59,7 +59,7 @@ const TotalContainer = styled.div`
   
   @media (orientation: landscape) {
     height: 100%;
-    max-width: 50vw;
+    max-width: 40vw;
   }
 `
 

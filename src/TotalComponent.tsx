@@ -16,7 +16,7 @@ const Container = styled.div`
   row-gap: 0.5rem;
   height: 100%;
   font-size: 0.8rem;
-  @media (min-width: 768px) {
+  @media (min-width: 900px) {
     font-size: 1.25rem;
   }
 `
@@ -39,7 +39,10 @@ interface PriceProps {
 }
 
 const Price = styled.div<PriceProps>`
-  min-width: 7vw;
+  min-width: 4vw;
+  @media (max-width: 768px) {
+    min-width: 4vw;
+  }
   float: left;
   text-align: right;
   font-weight: ${props => props.bold ? 'bold' : 'normal'};

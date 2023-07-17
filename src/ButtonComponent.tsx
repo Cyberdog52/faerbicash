@@ -53,14 +53,13 @@ const Total = styled.span<ButtonProps>`
   width: 1rem;
   height: 1rem;
 
-  @media (min-width: 768px) {
+  @media (min-width: 1000px) {
     font-size: 1.25rem;
     width: 1.25rem;
     height: 1.25rem;
   }
   background-color: ${props => props.backgroundColor};
   border: none;
-  border-radius: 50%;
   color: ${props => props.textColor};
 `
 
