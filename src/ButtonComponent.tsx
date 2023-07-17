@@ -20,8 +20,7 @@ const ButtonGrid = styled.div`
   @media (orientation: landscape) {
     grid-template-columns: repeat(4, 1fr);
   }
-  grid-gap: 4px;
-  margin: 4px;
+  grid-gap: 0.1vw;
   height: 100%
 `
 
@@ -32,15 +31,16 @@ const Button = styled.button<ButtonProps>`
   @media (min-width: 768px) {
     font-size: 1.25rem;
   }
-  font-size: 1rem;
-  border-radius: 1rem;
+  @media (min-width: 768px) {
+    font-size: 1rem;
+  }
+  font-size: 0.8rem;
   margin-right: 4px;
   margin-bottom: 4px;
   cursor: pointer;
   font-weight: bold;
   color: ${props => props.textColor};
   text-align: center;
-  min-height: 3rem;
 `
 
 const Total = styled.span<ButtonProps>`

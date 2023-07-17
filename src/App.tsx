@@ -10,16 +10,33 @@ const AppComponent = styled.div`
   color: white;
   display: flex;
   flex-direction: row;
-  column-gap: 1vw;
-  overflow: scroll;
-  flex-wrap: wrap;
+  overflow: hidden;
+  @media (orientation: portrait) {
+    flex-wrap: wrap;
+  }
+  @media (orientation: landscape) {
+    height: 100vh;
+  }
 `
 
 const ButtonContainer = styled.div`
   flex: 2 1 auto;
   min-width: 300px;
-  min-height: 500px;
-  padding: 1rem;
+  padding-top: 4px;
+  padding-left: 4px;
+  padding-bottom: 4px;
+  
+  @media (min-width: 768px) {
+    padding: 1rem;
+  }
+  
+  @media (orientation: landscape) {
+    height: 100%;
+    max-width: 50vw;
+  }
+  @media (orientation: portrait) {
+    min-height: 500px;
+  }
   
   border: none;
   font-weight: bold;
@@ -29,8 +46,20 @@ const TotalContainer = styled.div`
   flex: 1 1 auto;
   float: right;
   min-width: 300px;
-  padding: 8px;
+  padding: 0.5rem;
+  
   border: none;
+  
+  overflow-y: scroll;
+  
+  @media (min-width: 768px) {
+    padding: 1rem;
+  }
+  
+  @media (orientation: landscape) {
+    height: 100%;
+    max-width: 50vw;
+  }
 `
 
 function App() {

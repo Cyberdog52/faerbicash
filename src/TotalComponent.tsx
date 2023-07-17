@@ -15,7 +15,10 @@ const Container = styled.div`
   flex-direction: column;
   row-gap: 0.5rem;
   height: 100%;
-  font-size: 1rem;
+  font-size: 0.8rem;
+  @media (min-width: 768px) {
+    font-size: 1.25rem;
+  }
 `
 
 const ProductList = styled.div`
@@ -36,7 +39,7 @@ interface PriceProps {
 }
 
 const Price = styled.div<PriceProps>`
-  min-width: 40px;
+  min-width: 7vw;
   float: left;
   text-align: right;
   font-weight: ${props => props.bold ? 'bold' : 'normal'};
@@ -52,21 +55,16 @@ const ButtonGroup = styled.div`
 `
 
 const BigButton = styled.button`
-  border-radius: 0.5rem;
   border: none;
   padding: 2vw;
   font-size: 1.5rem;
   font-weight: bold;
   cursor: pointer;
+  margin-bottom: 1rem;
 `
 
 const ResetButton = styled(BigButton)`
   background-color: rgb(1, 163, 228);
-  color: white;
-`;
-
-const ReceitButton = styled(BigButton)`
-  background-color: rgb(128, 128, 199);
   color: white;
 `;
 
@@ -88,12 +86,12 @@ const Text = styled.span`
 
 const SmallRoundButton = styled.button`
   border-radius: 100%;
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   border: none;
   font-weight: bold;
   background-color: transparent;
-  height: 2rem;
-  width: 2rem;
+  height: 1.5rem;
+  width: 1.5rem;
   text-align: center;
   cursor: pointer;
   box-shadow: rgba(229, 229, 255, 0.54) 1px 3px 3px 1px;
@@ -104,14 +102,13 @@ const TotalContainer = styled.div`
   width: 100%;
   height: 2.5rem;
   border: none;
-  border-radius: 0.5rem;
   font-weight: bold;
   align-self: flex-end;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  font-size: 3rem;
-  margin-bottom: 2rem;
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
 `
 
 const TotalComponent = ({ selectedProducts, addProduct, removeProduct, resetProducts }: TotalComponentProps) => {
@@ -207,7 +204,6 @@ const TotalComponent = ({ selectedProducts, addProduct, removeProduct, resetProd
                 <div>{getTotalPrice()}.-</div>
             </TotalContainer>
             <ButtonGroup>
-                <ReceitButton onClick={() => {console.log('Rechnung')}}>Rechnung</ReceitButton>
                 <ResetButton onClick={handleResetClicked}>Neue Bestellung</ResetButton>
             </ButtonGroup>
         </Container>
