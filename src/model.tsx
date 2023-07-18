@@ -36,27 +36,11 @@ export class Product {
     }
 
     getPrimaryColor(): string {
-        switch (this.ageRestriction) {
-            case AgeRestriction.EIGHTEEN_PLUS:
-                return '#fd5dac';
-            case AgeRestriction.SIXTEEN_PLUS:
-                return '#01a3e4';
-            default:
-                return '#ffffff';
-
-        }
+        return '#ffffff';
     }
 
     getSecondaryColor(): string {
-        switch (this.ageRestriction) {
-            case AgeRestriction.EIGHTEEN_PLUS:
-                return '#ffffff';
-            case AgeRestriction.SIXTEEN_PLUS:
-                return '#ffffff';
-            default:
-                return '#000000';
-
-        }
+        return '#000000';
     }
 }
 
