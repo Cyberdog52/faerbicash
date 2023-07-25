@@ -14,12 +14,7 @@ export type ButtonProps = {
 
 const ButtonGrid = styled.div`
   display: grid;
-  @media (orientation: portrait) {
-    grid-template-columns: repeat(3, 1fr);
-  }
-  @media (orientation: landscape) {
-    grid-template-columns: repeat(4, 1fr);
-  }
+  grid-template-columns: repeat(3, 1fr);
   height: calc(100% - 4px);
   margin-right: 4px;
   margin-bottom: 4px;

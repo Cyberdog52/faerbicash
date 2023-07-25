@@ -88,19 +88,6 @@ const Text = styled.span`
 `
 
 
-const SmallRoundButton = styled.button`
-  font-size: 1.25rem;
-  border: none;
-  font-weight: bold;
-  background-color: transparent;
-  height: 1.5rem;
-  width: 1.5rem;
-  text-align: center;
-  cursor: pointer;
-  box-shadow: rgba(229, 229, 255, 0.3) 1px 3px 3px 1px;
-  color: white;
-`
-
 const TotalContainer = styled.div`
   width: 100%;
   height: 2.5rem;
@@ -165,13 +152,13 @@ const TotalComponent = ({ selectedProducts, addProduct, removeProduct, resetProd
             <ProductList>
                 { Array.from(selectedProducts.entries()).map(([product, amount]) => (
                     <Entry key={product.name}>
-                        <div>
-                            <SmallRoundButton onClick={() => removeProduct(product)}>-</SmallRoundButton>
-                            <Text>{amount}x</Text>
-                            <SmallRoundButton onClick={() => addProduct(product)}>+</SmallRoundButton>
+                        <div style={{ display: 'grid', placeItems: 'center', gridTemplateColumns: '1.5em 2em 1.5em auto'}}>
+                            <svg xmlns="http://www.w3.org/2000/svg" height="1.5em" viewBox="0 0 512 512"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM184 232H328c13.3 0 24 10.7 24 24s-10.7 24-24 24H184c-13.3 0-24-10.7-24-24s10.7-24 24-24z" fill="#ffffff"/><circle cx="256" cy="256" r="256" fill-opacity="0.0" onClick={() => removeProduct(product)}/></svg>
+                            <Text>{amount}</Text>
+                            <svg xmlns="http://www.w3.org/2000/svg" height="1.5em" viewBox="0 0 512 512"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM232 344V280H168c-13.3 0-24-10.7-24-24s10.7-24 24-24h64V168c0-13.3 10.7-24 24-24s24 10.7 24 24v64h64c13.3 0 24 10.7 24 24s-10.7 24-24 24H280v64c0 13.3-10.7 24-24 24s-24-10.7-24-24z" fill="#ffffff"/><circle cx="256" cy="256" r="256" fill-opacity="0.0" onClick={() => addProduct(product)}/></svg>
                             <Text>{product.name}</Text>
                         </div>
-                        <div>
+                        <div style={{ display: 'grid', placeItems: 'center', gridTemplateColumns: '2.5em 2.5em'}}>
                             <Price>{product.price}.-</Price>
                             <Price bold={true}>{product.price * amount}.-</Price>
                         </div>
@@ -180,9 +167,16 @@ const TotalComponent = ({ selectedProducts, addProduct, removeProduct, resetProd
                 {[Deposit.CUP, Deposit.MUG, Deposit.GLASS].map(deposit => (
                     <>
                     {getAmountOfDeposit(deposit) > 0 && <Entry>
-                            <div style={{paddingLeft: "2.5rem"}}>{getAmountOfDeposit(deposit)}x Depot {deposit}</div>
-                            <div><Price>{getDepositPrice(deposit)}.-</Price>
-                                <Price bold={true}>{getTotalPriceForDeposit(deposit)}.-</Price></div>
+                        <div style={{ display: 'grid', placeItems: 'center', gridTemplateColumns: '1.5em 2em 1.5em auto'}}>
+                            <Text/>
+                            <Text>{getAmountOfDeposit(deposit)}</Text>
+                            <Text/>
+                            <Text>Depot {deposit}</Text>
+                        </div>
+                        <div style={{ display: 'grid', placeItems: 'center', gridTemplateColumns: '2.5em 2.5em'}}>
+                            <Price>{getDepositPrice(deposit)}.-</Price>
+                            <Price bold={true}>{getTotalPriceForDeposit(deposit)}.-</Price>
+                        </div>
                         </Entry>}
                     </>
                     ))
@@ -191,13 +185,13 @@ const TotalComponent = ({ selectedProducts, addProduct, removeProduct, resetProd
             <DepositBackContainer>
                 {[Deposit.CUP, Deposit.MUG, Deposit.GLASS].map(deposit => (
                     <Entry key={deposit}>
-                        <div>
-                            <SmallRoundButton onClick={() => removeDepositBack(deposit)}>-</SmallRoundButton>
-                            <Text>{getDepositBackAmount(deposit)}x </Text>
-                            <SmallRoundButton onClick={() => addDepositBack(deposit)}>+</SmallRoundButton>
+                        <div style={{ display: 'grid', placeItems: 'center', gridTemplateColumns: '1.5em 2em 1.5em auto'}}>
+                            <svg xmlns="http://www.w3.org/2000/svg" height="1.5em" viewBox="0 0 512 512"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM184 232H328c13.3 0 24 10.7 24 24s-10.7 24-24 24H184c-13.3 0-24-10.7-24-24s10.7-24 24-24z" fill="#ffffff"/><circle cx="256" cy="256" r="256" fill-opacity="0.0" onClick={() => removeDepositBack(deposit)}/></svg>
+                            <Text>{getDepositBackAmount(deposit)}</Text>
+                            <svg xmlns="http://www.w3.org/2000/svg" height="1.5em" viewBox="0 0 512 512"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM232 344V280H168c-13.3 0-24-10.7-24-24s10.7-24 24-24h64V168c0-13.3 10.7-24 24-24s24 10.7 24 24v64h64c13.3 0 24 10.7 24 24s-10.7 24-24 24H280v64c0 13.3-10.7 24-24 24s-24-10.7-24-24z" fill="#ffffff"/><circle cx="256" cy="256" r="256" fill-opacity="0.0" onClick={() => addDepositBack(deposit)}/></svg>
                             <Text>{deposit} zurück</Text>
                         </div>
-                        <div>
+                        <div style={{ display: 'grid', placeItems: 'center', gridTemplateColumns: '2.5em 2.5em'}}>
                             <Price>{getDepositPrice(deposit)}.-</Price>
                             <Price bold={true}>{getTotalDepositBack(deposit)}.-</Price>
                         </div>
