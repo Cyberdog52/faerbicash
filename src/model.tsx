@@ -13,7 +13,7 @@ export enum Deposit {
     NONE = 'NONE',
     CUP = 'Becher',
     MUG = 'Mule',
-    GLASS = 'Glasflasche',
+    BOTTLE = 'Flasche',
 }
 
 export class Product {
@@ -52,7 +52,7 @@ export function getDepositPrice(deposit: Deposit): number {
             return 2;
         case Deposit.MUG:
             return 10;
-        case Deposit.GLASS:
+        case Deposit.BOTTLE:
             return 10;
         default:
             return 0;
@@ -71,7 +71,7 @@ export const allProducts : Product[]  = [
     new Product("Shot", '#ffcfcf',ProductType.DRINK, 5, Deposit.NONE, AgeRestriction.EIGHTEEN_PLUS),
     new Product("Virgin Mule", '#cfffdf',ProductType.DRINK, 10, Deposit.MUG, AgeRestriction.NONE),
     new Product("Virgin Sunrise", '#ffafdf',ProductType.DRINK, 10, Deposit.CUP, AgeRestriction.NONE),
-    new Product("Shot Flasche", '#ffcfcf',ProductType.DRINK, 50, Deposit.GLASS, AgeRestriction.EIGHTEEN_PLUS),
+    new Product("Shot Flasche", '#ffcfcf',ProductType.DRINK, 50, Deposit.BOTTLE, AgeRestriction.EIGHTEEN_PLUS),
     new Product("Aperol / Hugo", '#ffef9f',ProductType.DRINK, 12, Deposit.CUP, AgeRestriction.EIGHTEEN_PLUS),
     new Product("Gsprützte Wiisse", '#ffef9f',ProductType.DRINK, 8, Deposit.CUP, AgeRestriction.SIXTEEN_PLUS),
     new Product("Cüpli", '#ffef9f',ProductType.DRINK, 7, Deposit.CUP, AgeRestriction.SIXTEEN_PLUS),

@@ -48,16 +48,14 @@ const TotalContainer = styled.div`
   float: right;
   min-width: 300px;
   padding: 0.5rem;
-  
   border: none;
-  
-  overflow-y: scroll;
   
   @media (min-width: 768px) {
     padding: 1rem;
   }
   
   @media (orientation: landscape) {
+    overflow-y: scroll;
     height: 100%;
     max-width: 40vw;
   }
