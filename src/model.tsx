@@ -62,10 +62,10 @@ export function getDepositPrice(deposit: Deposit): number {
 export const allProducts : Product[]  = [
     new Product("Bier", '#afdfff', ProductType.DRINK, 6, Deposit.CUP, AgeRestriction.SIXTEEN_PLUS),
     new Product("Craftbeer", '#afdfff',ProductType.DRINK, 8, Deposit.CUP, AgeRestriction.SIXTEEN_PLUS),
-    new Product("Bier Alkoholfrei", '#afdfff',ProductType.DRINK, 6, Deposit.NONE, AgeRestriction.SIXTEEN_PLUS),
+    new Product("Moscht", '#afdfff',ProductType.DRINK, 7, Deposit.NONE, AgeRestriction.SIXTEEN_PLUS),
     new Product("Softdrink", '#ffffff',ProductType.DRINK, 5, Deposit.CUP, AgeRestriction.NONE),
     new Product("Energy Drink", '#ffffff',ProductType.DRINK, 6, Deposit.NONE, AgeRestriction.NONE),
-    new Product("Moscht", '#afdfff',ProductType.DRINK, 7, Deposit.NONE, AgeRestriction.SIXTEEN_PLUS),
+    new Product("Bier Alkoholfrei", '#ffffff',ProductType.DRINK, 6, Deposit.NONE, AgeRestriction.NONE),
     new Product("Mule", '#cfffdf',ProductType.DRINK, 15, Deposit.MUG, AgeRestriction.EIGHTEEN_PLUS),
     new Product("Longdrink", '#ffafdf',ProductType.DRINK, 14, Deposit.CUP, AgeRestriction.EIGHTEEN_PLUS),
     new Product("Shot", '#ffcfcf',ProductType.DRINK, 5, Deposit.NONE, AgeRestriction.EIGHTEEN_PLUS),
