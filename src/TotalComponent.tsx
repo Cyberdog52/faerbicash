@@ -68,7 +68,7 @@ const BigButton = styled.button`
 `
 
 const ResetButton = styled(BigButton)`
-  background-color: rgb(1, 163, 228);
+  background-color: #009fff;
   color: white;
 `;
 
@@ -79,7 +79,7 @@ const DepositBackContainer = styled.div`
   width: 100%;
   margin-top: auto;
   align-self: flex-end;
-  color: #fd5dac;
+  color: #ff5faf;
 `
 
 const Text = styled.span`

@@ -1,4 +1,4 @@
-import { allProducts, Product } from './model';
+import {AgeRestriction, allProducts, Product} from './model';
 import styled from 'styled-components';
 
 
@@ -41,7 +41,7 @@ const Button = styled.button<ButtonProps>`
 
 const Total = styled.span<ButtonProps>`
   position: absolute;
-  top: 0;
+  bottom: 0;
   right: 0;
   padding: 4px;
   font-size: 1rem;
@@ -55,7 +55,26 @@ const Total = styled.span<ButtonProps>`
   }
   background-color: ${props => props.backgroundColor};
   border: none;
-  color: ${props => props.textColor};
+  color: white;
+`
+
+const Age = styled.span<ButtonProps>`
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 4px;
+  font-size: 0.75rem;
+  width: 1.5rem;
+  height: 0.75rem;
+
+  @media (min-width: 1000px) {
+    font-size: 1.0rem;
+    width: 2.0rem;
+    height: 1.0rem;
+  }
+  background-color: ${props => props.backgroundColor};
+  border: none;
+  color: white;
 `
 
 const ButtonComponent = ({ addProduct, selectedProducts }: ButtonComponentProps) => {
@@ -81,6 +100,16 @@ const ButtonComponent = ({ addProduct, selectedProducts }: ButtonComponentProps)
                             textColor={product.getPrimaryColor()}>
                             {getTotalAmount(product)}
                         </Total>}
+                        {product.ageRestriction === AgeRestriction.SIXTEEN_PLUS &&
+                        <Age
+                            backgroundColor='#aaaa00'
+                            textColor={product.getPrimaryColor()}>16+</Age>
+                        }
+                        {product.ageRestriction === AgeRestriction.EIGHTEEN_PLUS &&
+                            <Age
+                                backgroundColor='#bf0000'
+                                textColor={product.getPrimaryColor()}>18+</Age>
+                        }
                     </Button>
                 </>
             ))}
