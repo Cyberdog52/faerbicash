@@ -24,13 +24,11 @@ const Button = styled.button<ButtonProps>`
   position: relative;
   background-color: ${props => props.backgroundColor};
   border: 4px black solid;
-  @media (min-width: 768px) {
-    font-size: 1.25rem;
-  }
-  @media (min-width: 768px) {
-    font-size: 1rem;
-  }
+  font-family: inherit;
   font-size: 0.8rem;
+  @media (min-width: 768px) {
+    font-size: 1.0rem;
+  }
   margin-left: 4px;
   margin-top: 4px;
   cursor: pointer;
@@ -94,7 +92,7 @@ const ButtonComponent = ({ addProduct, selectedProducts }: ButtonComponentProps)
                         backgroundColor={product.getPrimaryColor()}
                         textColor={product.getSecondaryColor()}
                         key={product.name}
-                        onClick={() => addProduct(product)}>{product.name.toUpperCase()}
+                        onClick={() => addProduct(product)}>{product.name}
                         {isSelected(product) && <Total
                             backgroundColor={product.getSecondaryColor()}
                             textColor={product.getPrimaryColor()}>
