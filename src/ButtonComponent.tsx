@@ -39,17 +39,17 @@ const Button = styled.button<ButtonProps>`
 
 const Total = styled.span<ButtonProps>`
   position: absolute;
-  bottom: 0;
-  right: 0;
+  top: -4px;
+  right: -4px;
   padding: 4px;
   font-size: 1rem;
-  width: 1rem;
-  height: 1rem;
+  width: 1.25rem;
+  height: 1.25rem;
 
   @media (min-width: 1000px) {
     font-size: 1.25rem;
-    width: 1.25rem;
-    height: 1.25rem;
+    width: 1.5rem;
+    height: 1.5rem;
   }
   background-color: ${props => props.backgroundColor};
   border: none;
