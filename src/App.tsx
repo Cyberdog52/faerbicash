@@ -18,6 +18,8 @@ const AppComponent = styled.div`
   @media (orientation: landscape) {
     height: 100vh;
   }
+  border: none;
+  padding: 0;
 `
 
 export interface BackgroundProps {
@@ -41,24 +43,6 @@ const ButtonContainer = styled.div<BackgroundProps>`
 
   border: none;
   font-weight: bold;
-`
-
-const TotalContainer = styled.div`
-  flex: 1 1 auto;
-  float: right;
-  min-width: 300px;
-  padding: 0.5rem;
-  border: none;
-  
-  @media (min-width: 768px) {
-    padding: 1rem;
-  }
-  
-  @media (orientation: landscape) {
-    overflow-y: scroll;
-    height: 100%;
-    max-width: 40vw;
-  }
 `
 
 function App() {
@@ -97,14 +81,12 @@ function App() {
                 selectedProducts={selectedProducts}
             />
         </ButtonContainer>
-        <TotalContainer>
-            <TotalComponent
-                addProduct={addProduct}
-                removeProduct={removeProduct}
-                resetProducts={resetProducts}
-                selectedProducts={selectedProducts}
-            />
-        </TotalContainer>
+        <TotalComponent
+            addProduct={addProduct}
+            removeProduct={removeProduct}
+            resetProducts={resetProducts}
+            selectedProducts={selectedProducts}
+        />
     </AppComponent>
     );
 }
