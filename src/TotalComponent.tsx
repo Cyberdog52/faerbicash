@@ -11,9 +11,18 @@ export type  TotalComponentProps = {
 }
 
 const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  row-gap: 0.5rem;
+  flex: 1 1 auto;
+  float: right;
+  min-width: 300px;
+  padding: 0.75rem;
+  border: none;
+
+  @media (orientation: landscape) {
+    overflow-y: scroll;
+    height: 100%;
+    max-width: 40vw;
+  }
+  row-gap: 0.75rem;
   height: 100%;
   font-size: 0.8rem;
   @media (orientation: portrait) {
@@ -27,7 +36,8 @@ const Container = styled.div`
 const ProductList = styled.div`
   display: flex;
   flex-direction: column;
-  row-gap: 0.5rem;
+  row-gap: 0.75rem;
+  margin-bottom: 0.75rem;
   width: 100%;
 `
 
@@ -53,9 +63,11 @@ const ButtonGroup = styled.div`
   flex-direction: row;
   justify-content: space-between;
   align-self: flex-end;
-  
   width: 100%;
-  margin-bottom: 8px;
+  
+  @media (orientation: landscape) {
+    margin-bottom: 0.75rem;
+  }
 `
 
 const ResetButton = styled.button`
@@ -65,7 +77,11 @@ const ResetButton = styled.button`
   font-size: 1.5rem;
   font-weight: bold;
   cursor: pointer;
-  margin-bottom: 1rem;
+  
+  @media (orientation: landscape) {
+    margin-bottom: 0.75rem;
+  }
+  
   background-color: #009fff;
   color: white;
 `
@@ -73,9 +89,10 @@ const ResetButton = styled.button`
 const DepositBackContainer = styled.div`
   display: flex;
   flex-direction: column;
-  row-gap: 0.5rem;
+  row-gap: 0.75rem;
   width: 100%;
-  margin-top: auto;
+  margin-top: 3rem;
+  margin-bottom: 0.75rem;
   align-self: flex-end;
   color: #ff5faf;
 `
@@ -88,7 +105,6 @@ const Text = styled.span`
 
 const TotalContainer = styled.div`
   width: 100%;
-  height: 2.5rem;
   border: none;
   font-weight: bold;
   align-self: flex-end;
@@ -96,7 +112,8 @@ const TotalContainer = styled.div`
   flex-direction: row;
   justify-content: space-between;
   font-size: 2rem;
-  margin-bottom: 0.5rem;
+  margin-top: 0.75rem;
+  margin-bottom: 0.75rem;
 `
 
 const TotalComponent = ({ selectedProducts, addProduct, removeProduct, resetProducts }: TotalComponentProps) => {
