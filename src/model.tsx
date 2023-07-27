@@ -76,7 +76,7 @@ export const allProducts : Product[]  = [
     new Product("Gsprützte Wiisse", '#ffefbf',ProductType.DRINK, 8, Deposit.CUP, AgeRestriction.SIXTEEN_PLUS),
     new Product("Cüpli", '#ffefbf',ProductType.DRINK, 7, Deposit.CUP, AgeRestriction.SIXTEEN_PLUS),
     new Product("Burger", '#ffcfef',ProductType.FOOD, 14, Deposit.NONE, AgeRestriction.NONE),
-    new Product("Nachos", '#ffcfef',ProductType.FOOD, 12, Deposit.NONE, AgeRestriction.NONE),
+    new Product("Nachos", '#ffcfef',ProductType.FOOD, 8, Deposit.NONE, AgeRestriction.NONE),
     new Product("Glacé", '#ffcfef',ProductType.FOOD, 6, Deposit.NONE, AgeRestriction.NONE),
     new Product("Kaffee", '#dfbfbf',ProductType.DRINK, 4, Deposit.NONE, AgeRestriction.NONE),
     new Product("Eis-Kaffee", '#dfbfbf',ProductType.DRINK, 6, Deposit.CUP, AgeRestriction.NONE),
