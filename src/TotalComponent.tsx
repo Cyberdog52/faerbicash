@@ -1,4 +1,4 @@
-import { Deposit, getDepositPrice, Product } from './model';
+import { Deposit, getDepositPrice, Product, ProductType } from './model';
 import styled from 'styled-components';
 import { useState } from 'react';
 
@@ -119,6 +119,7 @@ const TotalContainer = styled.div`
 const TotalComponent = ({ selectedProducts, addProduct, removeProduct, resetProducts }: TotalComponentProps) => {
 
     const [depositBack, setDepositBack] = useState<Map<Deposit, number>>(new Map<Deposit, number>());
+    const [voucher, setVoucher] = useState<number>();
 
     function addDepositBack(deposit: Deposit) {
         const newDepositBack = new Map(depositBack);
@@ -140,8 +141,47 @@ const TotalComponent = ({ selectedProducts, addProduct, removeProduct, resetProd
         return getDepositBackAmount(deposit) * getDepositPrice(deposit);
     }
 
+    function addVoucher() {
+        setVoucher((voucher ?? 0) + 1);
+    }
+
+    function removeVoucher() {
+        setVoucher(Math.max((voucher ?? 0) - 1, 0));
+    }
+
+    function getVoucherAmount(): number {
+        return voucher ?? 0;
+    }
+
+    function getTotalVoucher(): number {
+        let total = 0;
+        let tempSelectedProducts = new Map(selectedProducts);
+        for (let i = 0; i < getVoucherAmount(); i++) {
+            let mostExpensiveProduct: Product | undefined = undefined;
+            let mostExpensiveProductPrice = 0;
+            for (let product of Array.from(tempSelectedProducts.keys())) {
+                if (product.type !== ProductType.FOOD && product.price > mostExpensiveProductPrice && product.price <= 15) {
+                    mostExpensiveProduct = product;
+                    mostExpensiveProductPrice = product.price;
+                }
+            }
+            if (mostExpensiveProduct) {
+                total -= mostExpensiveProduct.price;
+                let currentAmount = tempSelectedProducts.get(mostExpensiveProduct);
+                if (currentAmount && currentAmount > 1) {
+                    tempSelectedProducts.set(mostExpensiveProduct, currentAmount - 1);
+                }
+                else {
+                    tempSelectedProducts.delete(mostExpensiveProduct);
+                }
+            }
+        }
+        return total;
+    }
+
     function handleResetClicked() {
         setDepositBack(new Map<Deposit, number>());
+        setVoucher(0);
         resetProducts();
     }
 
@@ -156,11 +196,11 @@ const TotalComponent = ({ selectedProducts, addProduct, removeProduct, resetProd
     }
 
     function getTotalPrice(): number {
-        const pricesExcludingDeposit = Array.from(selectedProducts.entries())
-            .reduce((sum, [product, amount]) => sum + product.price * amount, 0);
+        const pricesExcludingDeposit = Array.from(selectedProducts.entries()).reduce((sum, [product, amount]) => sum + product.price * amount, 0);
         const depositPrice = Array.from(selectedProducts.entries()).reduce((sum, [product, amount]) => sum + product.getDepositCost() * amount, 0);
         const depositBackPrice = Array.from(depositBack.entries()).reduce((sum, [deposit, amount]) => sum - getDepositPrice(deposit) * amount, 0);
-        return pricesExcludingDeposit + depositPrice + depositBackPrice;
+        const voucherPrice = getTotalVoucher();
+        return pricesExcludingDeposit + depositPrice + depositBackPrice + voucherPrice;
     }
     return (
         <Container>
@@ -210,8 +250,20 @@ const TotalComponent = ({ selectedProducts, addProduct, removeProduct, resetProd
                             <Price>{getDepositPrice(deposit)}.-</Price>
                             <Price bold={true}>{getTotalDepositBack(deposit)}.-</Price>
                         </div>
-                        </Entry>
+                    </Entry>
                 ))}
+                <Entry key="voucher">
+                    <div style={{ display: 'grid', placeItems: 'center', gridTemplateColumns: '2rem 2em 2rem auto', color: 'white'}}>
+                        <svg xmlns="http://www.w3.org/2000/svg" height="2rem" viewBox="0 0 512 512"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM184 232H328c13.3 0 24 10.7 24 24s-10.7 24-24 24H184c-13.3 0-24-10.7-24-24s10.7-24 24-24z" fill="#ffffff"/><circle cx="256" cy="256" r="256" fill-opacity="0.0" onClick={() => removeVoucher()}/></svg>
+                        <Text>{getVoucherAmount()}</Text>
+                        <svg xmlns="http://www.w3.org/2000/svg" height="2rem" viewBox="0 0 512 512"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM232 344V280H168c-13.3 0-24-10.7-24-24s10.7-24 24-24h64V168c0-13.3 10.7-24 24-24s24 10.7 24 24v64h64c13.3 0 24 10.7 24 24s-10.7 24-24 24H280v64c0 13.3-10.7 24-24 24s-24-10.7-24-24z" fill="#ffffff"/><circle cx="256" cy="256" r="256" fill-opacity="0.0" onClick={() => addVoucher()}/></svg>
+                        <Text>Chlämmerli</Text>
+                    </div>
+                    <div style={{ display: 'grid', placeItems: 'center', gridTemplateColumns: '2.5em 2.5em', color: 'white'}}>
+                        <Price></Price>
+                        <Price bold={true}>{getTotalVoucher()}.-</Price>
+                    </div>
+                </Entry>
             </DepositBackContainer>
             <TotalContainer>
                 <div>Total</div>
