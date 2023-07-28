@@ -208,9 +208,9 @@ const TotalComponent = ({ selectedProducts, addProduct, removeProduct, resetProd
                 { Array.from(selectedProducts.entries()).map(([product, amount]) => (
                     <Entry key={product.name}>
                         <div style={{ display: 'grid', placeItems: 'center', gridTemplateColumns: '2rem 2em 2rem auto'}}>
-                            <svg xmlns="http://www.w3.org/2000/svg" height="2rem" viewBox="0 0 512 512"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM184 232H328c13.3 0 24 10.7 24 24s-10.7 24-24 24H184c-13.3 0-24-10.7-24-24s10.7-24 24-24z" fill="#ffffff"/><circle cx="256" cy="256" r="256" onClick={() => removeProduct(product)}/></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" height="2rem" viewBox="0 0 512 512"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM184 232H328c13.3 0 24 10.7 24 24s-10.7 24-24 24H184c-13.3 0-24-10.7-24-24s10.7-24 24-24z" fill="#ffffff"/><circle cx="256" cy="256" r="256" fill-opacity="0.0" onClick={() => removeProduct(product)}/></svg>
                             <Text>{amount}</Text>
-                            <svg xmlns="http://www.w3.org/2000/svg" height="2rem" viewBox="0 0 512 512"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM232 344V280H168c-13.3 0-24-10.7-24-24s10.7-24 24-24h64V168c0-13.3 10.7-24 24-24s24 10.7 24 24v64h64c13.3 0 24 10.7 24 24s-10.7 24-24 24H280v64c0 13.3-10.7 24-24 24s-24-10.7-24-24z" fill="#ffffff"/><circle cx="256" cy="256" r="256" onClick={() => addProduct(product)}/></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" height="2rem" viewBox="0 0 512 512"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM232 344V280H168c-13.3 0-24-10.7-24-24s10.7-24 24-24h64V168c0-13.3 10.7-24 24-24s24 10.7 24 24v64h64c13.3 0 24 10.7 24 24s-10.7 24-24 24H280v64c0 13.3-10.7 24-24 24s-24-10.7-24-24z" fill="#ffffff"/><circle cx="256" cy="256" r="256" fill-opacity="0.0" onClick={() => addProduct(product)}/></svg>
                             <Text>{product.name}</Text>
                         </div>
                         <div style={{ display: 'grid', placeItems: 'center', gridTemplateColumns: '2.5em 2.5em'}}>
@@ -241,9 +241,9 @@ const TotalComponent = ({ selectedProducts, addProduct, removeProduct, resetProd
                 {[Deposit.CUP, Deposit.MUG, Deposit.BOTTLE].map(deposit => (
                     <Entry key={deposit}>
                         <div style={{ display: 'grid', placeItems: 'center', gridTemplateColumns: '2rem 2em 2rem auto'}}>
-                            <svg xmlns="http://www.w3.org/2000/svg" height="2rem" viewBox="0 0 512 512"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM184 232H328c13.3 0 24 10.7 24 24s-10.7 24-24 24H184c-13.3 0-24-10.7-24-24s10.7-24 24-24z" fill="#ffffff"/><circle cx="256" cy="256" r="256" onClick={() => removeDepositBack(deposit)}/></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" height="2rem" viewBox="0 0 512 512"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM184 232H328c13.3 0 24 10.7 24 24s-10.7 24-24 24H184c-13.3 0-24-10.7-24-24s10.7-24 24-24z" fill="#ffffff"/><circle cx="256" cy="256" r="256" fill-opacity="0.0" onClick={() => removeDepositBack(deposit)}/></svg>
                             <Text>{getDepositBackAmount(deposit)}</Text>
-                            <svg xmlns="http://www.w3.org/2000/svg" height="2rem" viewBox="0 0 512 512"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM232 344V280H168c-13.3 0-24-10.7-24-24s10.7-24 24-24h64V168c0-13.3 10.7-24 24-24s24 10.7 24 24v64h64c13.3 0 24 10.7 24 24s-10.7 24-24 24H280v64c0 13.3-10.7 24-24 24s-24-10.7-24-24z" fill="#ffffff"/><circle cx="256" cy="256" r="256" onClick={() => addDepositBack(deposit)}/></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" height="2rem" viewBox="0 0 512 512"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM232 344V280H168c-13.3 0-24-10.7-24-24s10.7-24 24-24h64V168c0-13.3 10.7-24 24-24s24 10.7 24 24v64h64c13.3 0 24 10.7 24 24s-10.7 24-24 24H280v64c0 13.3-10.7 24-24 24s-24-10.7-24-24z" fill="#ffffff"/><circle cx="256" cy="256" r="256" fill-opacity="0.0" onClick={() => addDepositBack(deposit)}/></svg>
                             <Text>{deposit} zurück</Text>
                         </div>
                         <div style={{ display: 'grid', placeItems: 'center', gridTemplateColumns: '2.5em 2.5em'}}>
@@ -254,9 +254,9 @@ const TotalComponent = ({ selectedProducts, addProduct, removeProduct, resetProd
                 ))}
                 <Entry key="voucher">
                     <div style={{ display: 'grid', placeItems: 'center', gridTemplateColumns: '2rem 2em 2rem auto', color: 'white'}}>
-                        <svg xmlns="http://www.w3.org/2000/svg" height="2rem" viewBox="0 0 512 512"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM184 232H328c13.3 0 24 10.7 24 24s-10.7 24-24 24H184c-13.3 0-24-10.7-24-24s10.7-24 24-24z" fill="#ffffff"/><circle cx="256" cy="256" r="256" onClick={() => removeVoucher()}/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" height="2rem" viewBox="0 0 512 512"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM184 232H328c13.3 0 24 10.7 24 24s-10.7 24-24 24H184c-13.3 0-24-10.7-24-24s10.7-24 24-24z" fill="#ffffff"/><circle cx="256" cy="256" r="256" fill-opacity="0.0" onClick={() => removeVoucher()}/></svg>
                         <Text>{getVoucherAmount()}</Text>
-                        <svg xmlns="http://www.w3.org/2000/svg" height="2rem" viewBox="0 0 512 512"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM232 344V280H168c-13.3 0-24-10.7-24-24s10.7-24 24-24h64V168c0-13.3 10.7-24 24-24s24 10.7 24 24v64h64c13.3 0 24 10.7 24 24s-10.7 24-24 24H280v64c0 13.3-10.7 24-24 24s-24-10.7-24-24z" fill="#ffffff"/><circle cx="256" cy="256" r="256" onClick={() => addVoucher()}/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" height="2rem" viewBox="0 0 512 512"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM232 344V280H168c-13.3 0-24-10.7-24-24s10.7-24 24-24h64V168c0-13.3 10.7-24 24-24s24 10.7 24 24v64h64c13.3 0 24 10.7 24 24s-10.7 24-24 24H280v64c0 13.3-10.7 24-24 24s-24-10.7-24-24z" fill="#ffffff"/><circle cx="256" cy="256" r="256" fill-opacity="0.0" onClick={() => addVoucher()}/></svg>
                         <Text>Chlämmerli</Text>
                     </div>
                     <div style={{ display: 'grid', placeItems: 'center', gridTemplateColumns: '2.5em 2.5em', color: 'white'}}>
