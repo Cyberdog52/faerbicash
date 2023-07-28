@@ -1,4 +1,4 @@
-import { Deposit, getDepositPrice, Product } from './model';
+import { Deposit, getDepositPrice, Product, ProductType } from './model';
 import styled from 'styled-components';
 import { useState } from 'react';
 
@@ -157,8 +157,24 @@ const TotalComponent = ({ selectedProducts, addProduct, removeProduct, resetProd
         let total = 0;
         let tempSelectedProducts = new Map(selectedProducts);
         for (let i = 0; i < getVoucherAmount(); i++) {
-            // iterate trough tempSelectedProducts and remove most expensive product which is not FOOD and add its price to total
-            total = total - 1;
+            let mostExpensiveProduct: Product | undefined = undefined;
+            let mostExpensiveProductPrice = 0;
+            for (let product of Array.from(tempSelectedProducts.keys())) {
+                if (product.type !== ProductType.FOOD && product.price > mostExpensiveProductPrice && product.price <= 15) {
+                    mostExpensiveProduct = product;
+                    mostExpensiveProductPrice = product.price;
+                }
+            }
+            if (mostExpensiveProduct) {
+                total -= mostExpensiveProduct.price;
+                let currentAmount = tempSelectedProducts.get(mostExpensiveProduct);
+                if (currentAmount && currentAmount > 1) {
+                    tempSelectedProducts.set(mostExpensiveProduct, currentAmount - 1);
+                }
+                else {
+                    tempSelectedProducts.delete(mostExpensiveProduct);
+                }
+            }
         }
         return total;
     }
