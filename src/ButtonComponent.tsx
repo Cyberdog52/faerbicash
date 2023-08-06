@@ -26,7 +26,7 @@ const Button = styled.button<ButtonProps>`
   border: 4px black solid;
   font-family: inherit;
   font-size: 0.8rem;
-  @media (min-width: 768px) {
+  @media (min-width: 48rem) {
     font-size: 1.0rem;
   }
   margin-left: 4px;
@@ -46,7 +46,7 @@ const Total = styled.span<ButtonProps>`
   width: 1.25rem;
   height: 1.25rem;
 
-  @media (min-width: 1000px) {
+  @media (min-width: 64rem) {
     font-size: 1.25rem;
     width: 1.5rem;
     height: 1.5rem;
@@ -65,7 +65,7 @@ const Age = styled.span<ButtonProps>`
   width: 1.5rem;
   height: 0.75rem;
 
-  @media (min-width: 1000px) {
+  @media (min-width: 64rem) {
     font-size: 1.0rem;
     width: 2.0rem;
     height: 1.0rem;

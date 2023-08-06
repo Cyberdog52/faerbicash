@@ -28,7 +28,7 @@ const Container = styled.div`
   @media (orientation: portrait) {
     font-size: 1.25rem;
   }
-  @media (min-width: 1000px) {
+  @media (min-width: 64rem) {
     font-size: 1.25rem;
   }
 `
