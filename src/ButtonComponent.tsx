@@ -25,9 +25,9 @@ const Button = styled.button<ButtonProps>`
   background-color: ${props => props.backgroundColor};
   border: 4px black solid;
   font-family: inherit;
-  font-size: 0.8rem;
-  @media (min-width: 48rem) {
-    font-size: 1.0rem;
+  font-size: 12px;
+  @media (min-width: 768px) {
+    font-size: 16px;
   }
   margin-left: 4px;
   margin-top: 4px;
@@ -42,14 +42,14 @@ const Total = styled.span<ButtonProps>`
   top: -4px;
   right: -4px;
   padding: 4px;
-  font-size: 1rem;
-  width: 1.25rem;
-  height: 1.25rem;
+  font-size: 16px;
+  width: 20px;
+  height: 20px;
 
-  @media (min-width: 64rem) {
-    font-size: 1.25rem;
-    width: 1.5rem;
-    height: 1.5rem;
+  @media (min-width: 1024px) {
+    font-size: 20px;
+    width: 24px;
+    height: 24px;
   }
   background-color: ${props => props.backgroundColor};
   border: none;
@@ -61,14 +61,14 @@ const Age = styled.span<ButtonProps>`
   bottom: 0;
   left: 0;
   padding: 4px;
-  font-size: 0.75rem;
-  width: 1.5rem;
-  height: 0.75rem;
+  font-size: 12px;
+  width: 24px;
+  height: 12px;
 
-  @media (min-width: 64rem) {
-    font-size: 1.0rem;
-    width: 2.0rem;
-    height: 1.0rem;
+  @media (min-width: 1024px) {
+    font-size: 16px;
+    width: 32px;
+    height: 16px;
   }
   background-color: ${props => props.backgroundColor};
   border: none;

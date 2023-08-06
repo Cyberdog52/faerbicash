@@ -14,7 +14,7 @@ const Container = styled.div`
   flex: 1 1 auto;
   float: right;
   min-width: 300px;
-  padding: 0.75rem;
+  padding: 12px;
   border: none;
 
   @media (orientation: landscape) {
@@ -22,22 +22,22 @@ const Container = styled.div`
     height: 100%;
     max-width: 40vw;
   }
-  row-gap: 0.75rem;
+  row-gap: 12px;
   height: 100%;
-  font-size: 0.8rem;
+  font-size: 12px;
   @media (orientation: portrait) {
-    font-size: 1.25rem;
+    font-size: 20px;
   }
-  @media (min-width: 64rem) {
-    font-size: 1.25rem;
+  @media (min-width: 1024px) {
+    font-size: 20px;
   }
 `
 
 const ProductList = styled.div`
   display: flex;
   flex-direction: column;
-  row-gap: 0.75rem;
-  margin-bottom: 0.75rem;
+  row-gap: 12px;
+  margin-bottom: 12px;
   width: 100%;
 `
 
@@ -66,20 +66,20 @@ const ButtonGroup = styled.div`
   width: 100%;
   
   @media (orientation: landscape) {
-    margin-bottom: 0.75rem;
+    margin-bottom: 12px;
   }
 `
 
 const ResetButton = styled.button`
   border: none;
-  padding: 1rem;
+  padding: 16px;
   font-family: inherit;
-  font-size: 1.5rem;
+  font-size: 24px;
   font-weight: bold;
   cursor: pointer;
   
   @media (orientation: landscape) {
-    margin-bottom: 0.75rem;
+    margin-bottom: 12px;
   }
   
   background-color: #009fff;
@@ -89,17 +89,17 @@ const ResetButton = styled.button`
 const DepositBackContainer = styled.div`
   display: flex;
   flex-direction: column;
-  row-gap: 0.75rem;
+  row-gap: 12px;
   width: 100%;
-  margin-top: 3rem;
-  margin-bottom: 0.75rem;
+  margin-top: 48px;
+  margin-bottom: 12px;
   align-self: flex-end;
   color: #ff5faf;
 `
 
 const Text = styled.span`
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
+  padding-left: 8px;
+  padding-right: 8px;
 `
 
 
@@ -111,9 +111,9 @@ const TotalContainer = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  font-size: 2rem;
-  margin-top: 0.75rem;
-  margin-bottom: 0.75rem;
+  font-size: 32px;
+  margin-top: 12px;
+  margin-bottom: 12px;
 `
 
 const TotalComponent = ({ selectedProducts, addProduct, removeProduct, resetProducts }: TotalComponentProps) => {
@@ -207,13 +207,13 @@ const TotalComponent = ({ selectedProducts, addProduct, removeProduct, resetProd
             <ProductList>
                 { Array.from(selectedProducts.entries()).map(([product, amount]) => (
                     <Entry key={product.name}>
-                        <div style={{ display: 'grid', placeItems: 'center', gridTemplateColumns: '2rem 2em 2rem auto'}}>
-                            <svg xmlns="http://www.w3.org/2000/svg" height="2rem" viewBox="0 0 512 512"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM184 232H328c13.3 0 24 10.7 24 24s-10.7 24-24 24H184c-13.3 0-24-10.7-24-24s10.7-24 24-24z" fill="#ffffff"/><circle cx="256" cy="256" r="256" fill-opacity="0.0" onClick={() => removeProduct(product)}/></svg>
+                        <div style={{ display: 'grid', placeItems: 'center', gridTemplateColumns: '32px 32px 32px auto'}}>
+                            <svg xmlns="http://www.w3.org/2000/svg" height="32px" viewBox="0 0 512 512"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM184 232H328c13.3 0 24 10.7 24 24s-10.7 24-24 24H184c-13.3 0-24-10.7-24-24s10.7-24 24-24z" fill="#ffffff"/><circle cx="256" cy="256" r="256" fill-opacity="0.0" onClick={() => removeProduct(product)}/></svg>
                             <Text>{amount}</Text>
-                            <svg xmlns="http://www.w3.org/2000/svg" height="2rem" viewBox="0 0 512 512"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM232 344V280H168c-13.3 0-24-10.7-24-24s10.7-24 24-24h64V168c0-13.3 10.7-24 24-24s24 10.7 24 24v64h64c13.3 0 24 10.7 24 24s-10.7 24-24 24H280v64c0 13.3-10.7 24-24 24s-24-10.7-24-24z" fill="#ffffff"/><circle cx="256" cy="256" r="256" fill-opacity="0.0" onClick={() => addProduct(product)}/></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" height="32px" viewBox="0 0 512 512"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM232 344V280H168c-13.3 0-24-10.7-24-24s10.7-24 24-24h64V168c0-13.3 10.7-24 24-24s24 10.7 24 24v64h64c13.3 0 24 10.7 24 24s-10.7 24-24 24H280v64c0 13.3-10.7 24-24 24s-24-10.7-24-24z" fill="#ffffff"/><circle cx="256" cy="256" r="256" fill-opacity="0.0" onClick={() => addProduct(product)}/></svg>
                             <Text>{product.name}</Text>
                         </div>
-                        <div style={{ display: 'grid', placeItems: 'center', gridTemplateColumns: '2.5em 2.5em'}}>
+                        <div style={{ display: 'grid', placeItems: 'center', gridTemplateColumns: '40px 40px'}}>
                             <Price>{product.price}.-</Price>
                             <Price bold={true}>{product.price * amount}.-</Price>
                         </div>
@@ -222,13 +222,13 @@ const TotalComponent = ({ selectedProducts, addProduct, removeProduct, resetProd
                 {[Deposit.CUP, Deposit.MUG, Deposit.BOTTLE].map(deposit => (
                     <>
                     {getAmountOfDeposit(deposit) > 0 && <Entry>
-                        <div style={{ display: 'grid', placeItems: 'center', gridTemplateColumns: '2rem 2em 2rem auto'}}>
+                        <div style={{ display: 'grid', placeItems: 'center', gridTemplateColumns: '16px 32px 16px auto'}}>
                             <Text/>
                             <Text>{getAmountOfDeposit(deposit)}</Text>
                             <Text/>
                             <Text>Depot {deposit}</Text>
                         </div>
-                        <div style={{ display: 'grid', placeItems: 'center', gridTemplateColumns: '2.5em 2.5em'}}>
+                        <div style={{ display: 'grid', placeItems: 'center', gridTemplateColumns: '40px 40px'}}>
                             <Price>{getDepositPrice(deposit)}.-</Price>
                             <Price bold={true}>{getTotalPriceForDeposit(deposit)}.-</Price>
                         </div>
@@ -240,26 +240,26 @@ const TotalComponent = ({ selectedProducts, addProduct, removeProduct, resetProd
             <DepositBackContainer>
                 {[Deposit.CUP, Deposit.MUG, Deposit.BOTTLE].map(deposit => (
                     <Entry key={deposit}>
-                        <div style={{ display: 'grid', placeItems: 'center', gridTemplateColumns: '2rem 2em 2rem auto'}}>
-                            <svg xmlns="http://www.w3.org/2000/svg" height="2rem" viewBox="0 0 512 512"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM184 232H328c13.3 0 24 10.7 24 24s-10.7 24-24 24H184c-13.3 0-24-10.7-24-24s10.7-24 24-24z" fill="#ffffff"/><circle cx="256" cy="256" r="256" fill-opacity="0.0" onClick={() => removeDepositBack(deposit)}/></svg>
+                        <div style={{ display: 'grid', placeItems: 'center', gridTemplateColumns: '32px 32px 32px auto'}}>
+                            <svg xmlns="http://www.w3.org/2000/svg" height="32px" viewBox="0 0 512 512"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM184 232H328c13.3 0 24 10.7 24 24s-10.7 24-24 24H184c-13.3 0-24-10.7-24-24s10.7-24 24-24z" fill="#ffffff"/><circle cx="256" cy="256" r="256" fill-opacity="0.0" onClick={() => removeDepositBack(deposit)}/></svg>
                             <Text>{getDepositBackAmount(deposit)}</Text>
-                            <svg xmlns="http://www.w3.org/2000/svg" height="2rem" viewBox="0 0 512 512"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM232 344V280H168c-13.3 0-24-10.7-24-24s10.7-24 24-24h64V168c0-13.3 10.7-24 24-24s24 10.7 24 24v64h64c13.3 0 24 10.7 24 24s-10.7 24-24 24H280v64c0 13.3-10.7 24-24 24s-24-10.7-24-24z" fill="#ffffff"/><circle cx="256" cy="256" r="256" fill-opacity="0.0" onClick={() => addDepositBack(deposit)}/></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" height="32px" viewBox="0 0 512 512"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM232 344V280H168c-13.3 0-24-10.7-24-24s10.7-24 24-24h64V168c0-13.3 10.7-24 24-24s24 10.7 24 24v64h64c13.3 0 24 10.7 24 24s-10.7 24-24 24H280v64c0 13.3-10.7 24-24 24s-24-10.7-24-24z" fill="#ffffff"/><circle cx="256" cy="256" r="256" fill-opacity="0.0" onClick={() => addDepositBack(deposit)}/></svg>
                             <Text>{deposit} zurück</Text>
                         </div>
-                        <div style={{ display: 'grid', placeItems: 'center', gridTemplateColumns: '2.5em 2.5em'}}>
+                        <div style={{ display: 'grid', placeItems: 'center', gridTemplateColumns: '40px 40px'}}>
                             <Price>{getDepositPrice(deposit)}.-</Price>
                             <Price bold={true}>{getTotalDepositBack(deposit)}.-</Price>
                         </div>
                     </Entry>
                 ))}
                 <Entry key="voucher">
-                    <div style={{ display: 'grid', placeItems: 'center', gridTemplateColumns: '2rem 2em 2rem auto', color: 'white'}}>
-                        <svg xmlns="http://www.w3.org/2000/svg" height="2rem" viewBox="0 0 512 512"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM184 232H328c13.3 0 24 10.7 24 24s-10.7 24-24 24H184c-13.3 0-24-10.7-24-24s10.7-24 24-24z" fill="#ffffff"/><circle cx="256" cy="256" r="256" fill-opacity="0.0" onClick={() => removeVoucher()}/></svg>
+                    <div style={{ display: 'grid', placeItems: 'center', gridTemplateColumns: '32px 32px 32px auto', color: 'white'}}>
+                        <svg xmlns="http://www.w3.org/2000/svg" height="32px" viewBox="0 0 512 512"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM184 232H328c13.3 0 24 10.7 24 24s-10.7 24-24 24H184c-13.3 0-24-10.7-24-24s10.7-24 24-24z" fill="#ffffff"/><circle cx="256" cy="256" r="256" fill-opacity="0.0" onClick={() => removeVoucher()}/></svg>
                         <Text>{getVoucherAmount()}</Text>
-                        <svg xmlns="http://www.w3.org/2000/svg" height="2rem" viewBox="0 0 512 512"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM232 344V280H168c-13.3 0-24-10.7-24-24s10.7-24 24-24h64V168c0-13.3 10.7-24 24-24s24 10.7 24 24v64h64c13.3 0 24 10.7 24 24s-10.7 24-24 24H280v64c0 13.3-10.7 24-24 24s-24-10.7-24-24z" fill="#ffffff"/><circle cx="256" cy="256" r="256" fill-opacity="0.0" onClick={() => addVoucher()}/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" height="32px" viewBox="0 0 512 512"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM232 344V280H168c-13.3 0-24-10.7-24-24s10.7-24 24-24h64V168c0-13.3 10.7-24 24-24s24 10.7 24 24v64h64c13.3 0 24 10.7 24 24s-10.7 24-24 24H280v64c0 13.3-10.7 24-24 24s-24-10.7-24-24z" fill="#ffffff"/><circle cx="256" cy="256" r="256" fill-opacity="0.0" onClick={() => addVoucher()}/></svg>
                         <Text>Chlämmerli</Text>
                     </div>
-                    <div style={{ display: 'grid', placeItems: 'center', gridTemplateColumns: '2.5em 2.5em', color: 'white'}}>
+                    <div style={{ display: 'grid', placeItems: 'center', gridTemplateColumns: '40px 40px', color: 'white'}}>
                         <Price></Price>
                         <Price bold={true}>{getTotalVoucher()}.-</Price>
                     </div>
